@@ -1,0 +1,1 @@
+This project is for integrating cordova plugin barcodescanner which is used for barcode scan and generation.
