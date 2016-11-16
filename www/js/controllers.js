@@ -1,6 +1,28 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, BarcodescannerService) {
+
+
+  $scope.scan = function () {
+    BarcodescannerService.scan(function (success) {
+      console.log(success);
+    }, function (error) {
+      console.log(error);
+    })
+  };
+
+  $scope.generate = function () {
+    BarcodescannerService.encode("332-32320-c0xz-332", function (success) {
+      console.log(success);
+
+      $scope.barcode = success;
+
+    }, function (error) {
+      console.log(error);
+    })
+  };
+
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
